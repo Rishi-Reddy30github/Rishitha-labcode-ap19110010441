@@ -1,0 +1,31 @@
+
+/**********************DFS******************/
+#include<stdio.h>
+ 
+int R[10][10],visited_node[10],n;    
+
+void Dfs(int x)
+{
+    int y;
+printf("\n%d",x);
+    visited_node[x]=1;
+for(y=0;y<n;y++)
+       if(!visited_node[y]&&R[x][y]==1)
+            Dfs(y);
+}
+
+void main()
+{
+    int x,y;
+    printf("Enter number of vertices:");
+    scanf("%d",&n);
+printf("\nEnter adjacency matrix of the graph:");
+   
+for(x=0;x<n;x++)
+       for(y=0;y<n;y++)
+scanf("%d",&R[x][y]);
+    
+   for(x=0;x<n;x++)
+        visited_node[x]=0;
+    Dfs(0);
+}
